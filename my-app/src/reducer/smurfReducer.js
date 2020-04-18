@@ -1,9 +1,9 @@
 import {
-  FETCH_CHARACTERS_START,
-  FETCH_CHARACTERS_SUCCESS,
-  FETCH_CHARACTERS_FAIL,
-  POST_CHARACTER_SUCCESS,
-  POST_CHARACTER_FAIL,
+  FETCH_SMURF_START,
+  FETCH_SMURF_SUCCESS,
+  FETCH_SMURF_FAIL,
+  POST_SMURF_SUCCESS,
+  POST_SMURF_FAIL,
 } from "../actions";
 
 // step one: setup empty reducer and initial state
@@ -20,35 +20,35 @@ const reducer = (state = initialState, action) => {
     case FETCH_SMURF_START:
       return {
         ...state,
-        fetchingCharacters: true,
+        fetchingSmurfs: true,
       };
     case FETCH_SMURF_SUCCESS:
       return {
         ...state,
-        characters: action.payload,
-        fetchingCharacters: false,
+        smurf: action.payload,
+        fetchingSmurfs: false,
         error: "",
       };
     case FETCH_SMURF_FAIL:
       return {
         ...state,
-        fetchingCharacters: false,
+        fetchingSmurfs: false,
         error: action.payload,
       };
     case POST_SMURF_SUCCESS:
-      const newCharacter = {
+      const newSmurf = {
         name: "Brainey",
         age: 200,
         height: "5cm",
         id: 0,
       };
-      return { ...state, characters: [...state.characters, newCharacter] };
+      return { ...state, smurf: [...state.smurf, newSmurf] };
     case POST_SMURF_FAIL:
       return {
         ...state,
-        addingCharacter: false,
+        addingSmurf: false,
         error: action.payload,
-        fetchingCharacters: false,
+        fetchingSmurfs: false,
       };
     default:
       return state;
