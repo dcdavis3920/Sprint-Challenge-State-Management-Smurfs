@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   fetchingSmurfs: false,
-  postingSmurfs: false,
+  // postingSmurfs: false,
   error: "",
   smurf: [],
 };
@@ -25,7 +25,7 @@ const reducer = (state = initialState, action) => {
     case FETCH_SMURF_SUCCESS:
       return {
         ...state,
-        smurf: action.payload,
+        smurf: action.payload.data,
         fetchingSmurfs: false,
         error: "",
       };

@@ -14,10 +14,10 @@ export const getSmurf = () => (dispatch) => {
     .get("http://localhost:3333/smurfs")
     .then((res) => {
       console.log("API Data:", res.data);
-      dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
+      dispatch({ type: FETCH_SMURF_SUCCESS, payload: res });
     })
     .catch((err) => {
-      dispatch({ type: FETCH_SMURF_FAIL, payload: err.res });
+      dispatch({ type: FETCH_SMURF_FAIL, payload: err });
     });
 };
 
